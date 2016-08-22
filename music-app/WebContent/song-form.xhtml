@@ -12,9 +12,8 @@
 
 		<h:panelGroup styleClass="form-group">
 			<h:outputLabel value="Artist Name:" />
-			<h:selectOneMenu styleClass="form-control" value="#{songBean.song.artist}">
+			<h:selectOneMenu styleClass="form-control" value="#{songBean.song.artist}" converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{artistBean.artists}" />
-				<f:converter converterId="artistConverter" />
 			</h:selectOneMenu>
 		</h:panelGroup>
 

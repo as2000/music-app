@@ -13,6 +13,9 @@ public class songBean {
 	}
 
 	public Song getSong() {
+		if (this.song == null){
+			this.song = new Song();
+		}
 		return song;
 	}
 

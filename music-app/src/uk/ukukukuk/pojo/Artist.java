@@ -1,34 +1,30 @@
 package uk.ukukukuk.pojo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table
-public class Song {
+public class Artist {
 
     @Id
     @GeneratedValue
     private Long id;
     
-
 	private String name;
-	
-	@ManyToOne
-	private Artist artist;
 	private String musicBrainzID;
 	
-	public Song(){
-		this.name = "The Moebius";
-		//this.artist = "Orbital";
-		this.musicBrainzID = "6bf00ce5-58a9-4283-9842-f0460bf64048";
-	}
-
-	public Long getId() {
-		return id;
+	@OneToMany(mappedBy="artist")
+	private List<Song> songs;
+	
+	public Artist(){
+		this.name = "Orbital";
+		this.musicBrainzID = "f3e2a7d9-c6bb-4848-95e5-04c0a1e2f511";
 	}
 	
 	public String getName() {
@@ -37,21 +33,24 @@ public class Song {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Artist getArtist() {
-		return artist;
-	}
-	public void setArtist(Artist artist) {
-		this.artist = artist;
-	}
 	public String getMusicBrainzID() {
 		return musicBrainzID;
 	}
 	public void setMusicBrainzID(String musicBrainzID) {
 		this.musicBrainzID = musicBrainzID;
 	}
+	public List<Song> getSongs() {
+		return songs;
+	}
+	public void setSongs(List<Song> songs) {
+		this.songs = songs;
+	}
+	public Long getId() {
+		return id;
+	}
 	
 	@Override
 	public String toString(){
-		return this.name + ", " + this.artist + ", " + this.musicBrainzID;
+		return this.name;
 	}
 }

@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<h2>Artists</h2>
+	<h:dataTable styleClass="table" id="artist-list"
+		value="#{artistBean.artists}" var="_artist">
+		<h:column>
+			<f:facet name="header">Artist Name</f:facet>			
+			#{_artist.name}
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">MusicBrainzID</f:facet>
+			#{_artist.musicBrainzID}
+		</h:column>
+	</h:dataTable>
+</ui:composition>

@@ -5,16 +5,16 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import uk.ukukukuk.pojo.Song;
+import uk.ukukukuk.pojo.Artist;
 import uk.ukukukuk.util.HibernateUtil;
 
-public class SongDAO {
+public class ArtistDAO {
 
-	public static boolean commit(Song song) {
+	public static boolean commit(Artist artist) {
 		try {
 			Session session = HibernateUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-			session.save(song);
+			session.save(artist);
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();
@@ -24,9 +24,9 @@ public class SongDAO {
 
 	}
 
-	public static List<Song> getAllSongs() {
+	public static List<Artist> getAllArtists() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		return session.createCriteria(Song.class).list();
+		return session.createCriteria(Artist.class).list();
 	}
 
 }

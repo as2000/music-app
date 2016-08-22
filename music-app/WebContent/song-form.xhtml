@@ -14,7 +14,7 @@
 		Song Name: <h:inputText id="songName" value="#{songBean.song.name}"/> <br/>
 		Artist Name: <h:inputText id="artistName" value="#{songBean.song.artist}"/> <br/>
 		MusicBrainzID: <h:inputText id="mbID" value="#{songBean.song.musicBrainzID}"/> <br/>
-		<h:commandButton action="#{songBean.persist}" value="Save" />
+		<h:commandButton action="#{songBean.commit}" value="Save" />
 			
 	</h:form>
 

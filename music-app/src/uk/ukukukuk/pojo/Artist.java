@@ -20,7 +20,7 @@ public class Artist {
 	private String musicBrainzID;
 	
 	@OneToMany(mappedBy="artist")
-	private List<Song> songs;
+	private transient List<Song> songs;
 	
 	public Artist(){
 		this.name = "Orbital";

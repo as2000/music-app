@@ -1,4 +1,6 @@
 package uk.ukukukuk.beans;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 
 import uk.ukukukuk.dao.SongDAO;
@@ -8,6 +10,7 @@ import uk.ukukukuk.pojo.Song;
 public class SongBean {
 	
 	private Song song;
+	private List<Song> songs;
 	
 	public SongBean(){
 		
@@ -24,6 +27,13 @@ public class SongBean {
 		this.song = song;
 	} 
 	
+	public List<Song> getSongs() {
+		if (songs == null){
+			songs = SongDAO.getAllSongs();
+		}		
+		return songs;
+	}
+
 	public void commit(){
 		System.out.println(this.song);		
 		SongDAO.commit(song);	

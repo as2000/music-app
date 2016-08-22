@@ -30,9 +30,10 @@ public class ArtistBean {
 		return artists;
 	}
 	
-	public void commit(){
+	public String commit(){
 		System.out.println(this.artist);		
-		ArtistDAO.commit(artist);	
+		ArtistDAO.commit(artist);
+		return "index";
 	}
 
 }

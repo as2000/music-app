@@ -34,9 +34,10 @@ public class SongBean {
 		return songs;
 	}
 
-	public void commit(){
+	public String commit(){
 		System.out.println(this.song);		
-		SongDAO.commit(song);	
+		SongDAO.commit(song);
+		return "index";
 	}
 
 

@@ -22,6 +22,12 @@ public class songBean {
 	public void setSong(Song song) {
 		this.song = song;
 	} 
+	
+	public String persist(){
+		//TODO persistance
+		System.out.println(this.song);
+		return "success";		
+	}
 
 
 }

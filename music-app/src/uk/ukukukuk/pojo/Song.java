@@ -30,4 +30,9 @@ public class Song {
 	public void setMusicBrainzID(String musicBrainzID) {
 		this.musicBrainzID = musicBrainzID;
 	}
+	
+	@Override
+	public String toString(){
+		return this.name + ", " + this.artist + ", " + this.musicBrainzID;
+	}
 }

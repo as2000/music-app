@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
@@ -40,9 +41,9 @@ public class SongDAO {
 		EntityManager em = HibernateUtil.getSessionFactory().createEntityManager();
 		CriteriaBuilder cb = HibernateUtil.getSessionFactory().getCriteriaBuilder();
 		CriteriaQuery<Song> q = cb.createQuery(Song.class);
-		Root<Song> song = q.from(Song.class);
+		Root<Song> root = q.from(Song.class);
 		ParameterExpression<Long> parameter = cb.parameter(Long.class);
-		q.select(song).where(cb.equal(song.get("id"), parameter));
+		q.select(root).where(cb.equal(root.get("id"), parameter));
 		
 		TypedQuery<Song> query = em.createQuery(q);
 		query.setParameter(parameter, id);
@@ -52,6 +53,18 @@ public class SongDAO {
 		return results;
 		
 		
+	}
+
+	public static int deleteSong(long songIDl) {
+		EntityManager em = HibernateUtil.getSessionFactory().createEntityManager();
+		CriteriaBuilder cb = HibernateUtil.getSessionFactory().getCriteriaBuilder();
+		CriteriaDelete<Song> cq = cb.createCriteriaDelete(Song.class);
+		Root<Song> root = cq.from(Song.class);		
+		cq.where(cb.equal(root.get("id"), songIDl ));
+		
+		int result = em.createQuery(cq).executeUpdate();
+		return result;
+
 	}
 
 }

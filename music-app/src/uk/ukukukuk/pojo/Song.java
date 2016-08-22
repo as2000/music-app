@@ -5,6 +5,13 @@ public class Song {
 	private String name;
 	private String artist;
 	private String musicBrainzID;
+	
+	public Song(){
+		this.name = "The Moebius";
+		this.artist = "Orbital";
+		this.musicBrainzID = "6bf00ce5-58a9-4283-9842-f0460bf64048";
+	}
+	
 	public String getName() {
 		return name;
 	}

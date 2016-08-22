@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<h2>Song Form</h2>
+	<h:form>
+		<h:panelGroup styleClass="form-group">
+			<h:outputLabel value="Song Name:" />
+			<h:inputText styleClass="form-control" id="songName"
+				value="#{songBean.song.name}" />
+		</h:panelGroup>
+
+		<h:panelGroup styleClass="form-group">
+			<h:outputLabel value="Artist Name:" />
+			<h:selectOneMenu styleClass="form-control" value="#{songBean.song.artist}" converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{artistBean.artists}" />
+			</h:selectOneMenu>
+		</h:panelGroup>
+
+		<h:panelGroup styleClass="form-group">
+			<h:outputLabel value="MusicBrainzID:" />
+			<h:inputText styleClass="form-control" id="mbID"
+				value="#{songBean.song.musicBrainzID}" />
+		</h:panelGroup>
+
+		<h:commandButton action="#{songBean.commit}" value="Save" />
+	</h:form>
+</ui:composition>

@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<h2>Songs</h2>
+	<h:dataTable styleClass="table" id="song-list"
+		value="#{songBean.songs}" var="_song">
+		<h:column>
+			<f:facet name="header">Song Name</f:facet>       
+      		#{_song.name} 
+    </h:column>
+
+		<h:column>
+			<f:facet name="header">Artist Name</f:facet> 
+		    #{_song.artist} 
+    </h:column>
+
+		<h:column>
+			<f:facet name="header">MMusicBrainzID</f:facet> 
+      		#{_song.musicBrainzID} 
+    </h:column>
+	</h:dataTable>
+</ui:composition>

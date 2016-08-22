@@ -3,6 +3,7 @@ package uk.ukukukuk.pojo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,12 +16,14 @@ public class Song {
     
 
 	private String name;
-	private String artist;
+	
+	@ManyToOne
+	private Artist artist;
 	private String musicBrainzID;
 	
 	public Song(){
 		this.name = "The Moebius";
-		this.artist = "Orbital";
+		//this.artist = "Orbital";
 		this.musicBrainzID = "6bf00ce5-58a9-4283-9842-f0460bf64048";
 	}
 
@@ -34,10 +37,10 @@ public class Song {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getArtist() {
+	public Artist getArtist() {
 		return artist;
 	}
-	public void setArtist(String artist) {
+	public void setArtist(Artist artist) {
 		this.artist = artist;
 	}
 	public String getMusicBrainzID() {

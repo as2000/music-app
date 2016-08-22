@@ -10,23 +10,23 @@ import uk.ukukukuk.util.HibernateUtil;
 
 public class SongDAO {
 
-	public static boolean commit(Song song){
+	public static boolean commit(Song song) {
 		try {
-			Session session = HibernateUtil.getSessionFactory().openSession();		  
-			session.beginTransaction();            
-			session.save(song);      
+			Session session = HibernateUtil.getSessionFactory().openSession();
+			session.beginTransaction();
+			session.save(song);
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
 		}
-        return true;
- 
+		return true;
+
 	}
-	
-	public static List<Song> getAllSongs(){
-		Session session = HibernateUtil.getSessionFactory().openSession();		  		 
-		return session.createCriteria(Song.class).list();		
+
+	public static List<Song> getAllSongs() {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		return session.createCriteria(Song.class).list();
 	}
-	
+
 }

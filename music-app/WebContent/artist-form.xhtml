@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
+	<h2>New Artist</h2>
+	<h:form >
+		<h:panelGroup styleClass="form-group">
+			<h:outputLabel value="Artist Name:" />
+			<h:inputText styleClass="form-control" id="artistName" value="#{artistBean.artist.name}" />
+		</h:panelGroup>
+
+		<h:panelGroup styleClass="form-group">
+			<h:outputLabel value="MusicBrainzID:" />
+			<h:inputText styleClass="form-control" id="mbID" value="#{artistBean.artist.musicBrainzID}" />
+		</h:panelGroup>
+
+		<h:commandButton action="#{artistBean.commit}" value="Save" />
+	</h:form>
+</ui:composition>

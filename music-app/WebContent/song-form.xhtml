@@ -1,10 +1,22 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">      
-	<h:form>
-		Song Name: <h:inputText id="songName" value="#{songBean.song.name}"/> <br/>
-		Artist Name: <h:inputText id="artistName" value="#{songBean.song.artist}"/> <br/>
-		MusicBrainzID: <h:inputText id="mbID" value="#{songBean.song.musicBrainzID}"/> <br/>
-		<h:commandButton action="#{songBean.commit}" value="Save" />			
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	<h:form >
+		<h:panelGroup styleClass="form-group">
+			<h:outputLabel value="Song Name:" />
+			<h:inputText styleClass="form-control" id="songName" value="#{songBean.song.name}" />
+		</h:panelGroup>
+
+		<h:panelGroup styleClass="form-group">
+			<h:outputLabel value="Artist Name:" />
+			<h:inputText styleClass="form-control" id="artistName" value="#{songBean.song.artist}" />
+		</h:panelGroup>
+
+		<h:panelGroup styleClass="form-group">
+			<h:outputLabel value="MusicBrainzID:" />
+			<h:inputText styleClass="form-control" id="mbID" value="#{songBean.song.musicBrainzID}" />
+		</h:panelGroup>
+
+		<h:commandButton action="#{songBean.commit}" value="Save" />
 	</h:form>
 </ui:composition>

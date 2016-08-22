@@ -1,14 +1,15 @@
 package uk.ukukukuk.beans;
 import javax.faces.bean.ManagedBean;
 
+import uk.ukukukuk.dao.SongDAO;
 import uk.ukukukuk.pojo.Song;
 
 @ManagedBean
-public class songBean {
+public class SongBean {
 	
 	private Song song;
 	
-	public songBean(){
+	public SongBean(){
 		
 	}
 
@@ -23,10 +24,9 @@ public class songBean {
 		this.song = song;
 	} 
 	
-	public String persist(){
-		//TODO persistance
-		System.out.println(this.song);
-		return "success";		
+	public void commit(){
+		System.out.println(this.song);		
+		SongDAO.commit(song);	
 	}
 
 
